@@ -9,6 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,8 +23,8 @@ public class ProductDTO {
     @Size( min = 3, max=200, message = "Title must be between 3 and 200 characters")
     private String name;
 
-  @Min(value = 0,message = "Price must be greater than equal to 0")
-  @Max(value = 10000000, message = "Price must be less or equal to 10,000,000")
+    @Min(value = 0,message = "Price must be greater than equal to 0")
+    @Max(value = 10000000, message = "Price must be less or equal to 10,000,000")
     private Float price;
 
     private String thumbnail;
@@ -30,4 +33,6 @@ public class ProductDTO {
 
     @JsonProperty("category_id")
     private String categoryId;
+
+    private List<MultipartFile> files;
 }
